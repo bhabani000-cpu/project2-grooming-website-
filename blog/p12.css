@@ -1,0 +1,153 @@
+/*navbar*/
+header {
+  display: flex;
+}
+header img {
+  margin-left: 4%;
+  margin-top: 6px;
+  height: 120px;
+  width: 120px;
+  background-color: #f9f9f963;
+  border-radius: 50%;
+}
+.logo {
+  font-size: 50px;
+  padding-top: 30px;
+  padding-left: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* body styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    180deg,
+    #f5f9ff 0%,
+    #5c9de6c7 50%,
+    #2b6bb072 100%
+  );
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+/* hero */
+.grooming-mistakes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 6%;
+  width: 100%;
+}
+
+.gm-text {
+  width: 55%;
+}
+
+.gm-text h1 {
+  font-size: 48px;
+  color: #63aee0;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.gm-text p {
+  font-size: 19px;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.read-more-btn {
+  background: #e53935;
+  border: none;
+  padding: 15px 40px;
+  color: white;
+  font-size: 18px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.gm-image {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.circle-bg img {
+  width: 700px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 1000px 0px 0px 1000px;
+  position: relative;
+    left: 90px;
+}
+
+/* .container */
+.container {
+  width: 931px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background: rgb(216, 235, 249);
+  border-radius: 20px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section h2 {
+  color: #2b6cb0;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.content p {
+  width: 65%;
+  line-height: 1.6;
+}
+
+.content img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.footer-box {
+  background: #eef2f7;
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 40px;
+}
+
+.footer-box h2 {
+  color: #2b6cb0;
+  font-size: 20px;
+}
+
+.footer-box p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  background: #ff4d4d;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}

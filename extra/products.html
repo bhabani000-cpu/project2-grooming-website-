@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Products — Pet Grooming</title>
+    <style>
+      :root {
+        --bg: #f8f5f2;
+        --card: #ffffff;
+        --muted: #5a5a5a;
+        --accent: #e63946;
+        --text: #000000;
+        --soft-gray: #f4f5f7;
+        --border: #e6eaee;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      header {
+        background: var(--bg);
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--border);
+      }
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background-color: rgba(7, 112, 168, 0.333);
+        padding: 10px 130px;
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-size: 22px;
+      }
+
+      .sub {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .results {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 18px 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        background: var(--card);
+        border-radius: 12px;
+        padding: 14px;
+
+        box-shadow: 0 1px 0 rgba(10, 20, 30, 0.02),
+          0 6px 16px rgba(10, 20, 30, 0.06), 0 18px 40px rgba(10, 20, 30, 0.06);
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        transition: transform 160ms ease, box-shadow 160ms ease,
+          border-color 160ms;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 4px 8px rgba(10, 20, 30, 0.06),
+          0 18px 45px rgba(10, 20, 30, 0.12), 0 32px 80px rgba(10, 20, 30, 0.1);
+        border-color: rgba(0, 0, 0, 0.06);
+      }
+
+      .img {
+        background: var(--soft-gray);
+        height: 150px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 13px;
+        margin-bottom: 10px;
+        overflow: hidden;
+      }
+
+      .img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+        display: block;
+
+        box-shadow: 0 6px 18px rgba(10, 20, 30, 0.06);
+      }
+
+      h3 {
+        margin: 0 0 6px 0;
+        font-size: 15px;
+        color: var(--text);
+      }
+
+      p.desc {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        min-height: 40px;
+      }
+
+      .meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 12px;
+      }
+
+      .price {
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--accent);
+      }
+
+      .badge {
+        background: rgba(230, 57, 70, 0.1);
+        color: var(--accent);
+        padding: 6px 8px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 12px;
+        display: inline-block;
+      }
+
+      .actions {
+        display: flex;
+        gap: 8px;
+      }
+
+      .btn {
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 0;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 13px;
+        transition: background 140ms ease, transform 120ms ease,
+          box-shadow 140ms;
+      }
+
+      .btn.cta {
+        background: var(--accent);
+        color: #fff;
+        border: 1px solid rgba(230, 57, 70, 0.15);
+        box-shadow: 0 6px 18px rgba(230, 57, 70, 0.1);
+      }
+
+      .btn.cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(230, 57, 70, 0.16);
+      }
+
+      .btn.ghost {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+
+      .btn.ghost:hover {
+        background: rgba(0, 0, 0, 0.03);
+        transform: translateY(-1px);
+      }
+
+      footer {
+        margin-top: 26px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+      }
+      body {
+        background: linear-gradient(
+          180deg,
+          #f5f9ff 0%,
+          #5c9de6c7 80%,
+          #2b6bb072 100%
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <div class="brand">
+          <h1 style="font-size: 30px">Our Products</h1>
+          <div class="sub">© Pet grooming • Cats & Dogs</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="results">
+        <div><strong>Grooming essentials — curated selection</strong></div>
+        <div class="sub">Showing 16 results</div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://images.pexels.com/photos/5731869/pexels-photo-5731869.jpeg?auto=compress&cs=tinysrgb&w=600"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Trixie Dog/Cat Slicker Brush with Brush Cleaner</h3>
+          <p class="desc">
+            The Trixie Dog/Cat Slicker Brush gently and accurately removes loose
+            hair, mats, and dander, helping reduce shedding and keeping your
+            pet’s coat smooth and healthy.
+          </p>
+          <div class="meta">
+            <div>
+              <div class="price">₹189</div>
+              <div class="badge" style="display: inline-block; margin-top: 6px">
+                Best seller
+              </div>
+            </div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71PPTBXeOAS.jpg"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Style Keepers 4-in-1 Grooming Kit</h3>
+          <p class="desc">
+            The Style Keepers 4-in-1 Grooming Kit offers easy pet care with
+            silicone bathing gloves, a shampoo applicator, a finger toothbrush,
+            and a deshedding scrubber to clean, massage, and maintain a healthy,
+            shiny coat.
+          </p>
+          <div class="meta">
+            <div>
+              <div class="price">₹229</div>
+              <div class="badge">Best seller</div>
+            </div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wh-ivIYXL.jpg"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>4-in-1 Combo Grooming Kit</h3>
+          <p class="desc">
+            The 4-in-1 Combo Grooming Kit provides essential tools—nail clipper,
+            bath brush, double-sided brush, and grooming glove—to simplify
+            at-home pet care by handling shedding, detangling, cleaning, and
+            nail trimming in one convenient kit.
+          </p>
+          <div class="meta">
+            <div class="price">₹93</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://rukminim2.flixcart.com/image/480/640/keykscw0-0/trimmer/i/h/b/0-5-12-mm-stainless-steel-multifunctional-3-in-1-grooming-kit-original-imafvj3ma5fzrpvx.jpeg?q=90"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>3-in-1 Grooming Kit</h3>
+          <p class="desc">
+            The 3-in-1 Grooming Kit includes a silicone bath brush, a deshedding
+            tool, and a grooming comb to gently wash, detangle, and reduce
+            shedding, offering an easy, effective, pet-safe solution for daily
+            at-home grooming.
+          </p>
+          <div class="meta">
+            <div>
+              <div class="price">₹284</div>
+              <div class="badge">Popular</div>
+            </div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://rukminim2.flixcart.com/image/480/640/xif0q/pet-comb-brush/m/m/i/medium-gl-1-pawdles-original-imahbnmcxuh2gung.jpeg?q=90"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Pawdles Grooming Combo</h3>
+          <p class="desc">
+            The Pawdles Grooming Combo includes a nail clipper, flea comb,
+            grooming glove, and shampoo brush with dispenser, offering an easy,
+            pet-safe way to clean, detangle, and reduce shedding—keeping your
+            pet comfortable and well-groomed at home.
+          </p>
+          <div class="meta">
+            <div class="price">₹249</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/81oSmsb+-bL._AC_UF1000,1000_QL80_.jpg"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Tick & flea grooming sprays</h3>
+          <p class="desc">
+            The Flea & Tick Grooming Spray gently repels and eliminates pests
+            while refreshing your pet’s coat, offering a quick, chemical-light,
+            easy-to-use solution for reducing itching and keeping dogs and cats
+            protected between baths.
+          </p>
+          <div class="meta">
+            <div class="price">₹288</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/51Zbh-iQ2AL.jpg"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Petology / Kemei Hair Trimmer</h3>
+          <p class="desc">
+            The Petology/Kemei Hair Trimmer is a quiet, cordless,
+            professional-grade trimmer with adjustable stainless-steel blades
+            and multiple guide combs, offering precise, easy, and comfortable
+            at-home grooming for pets of all sizes.
+          </p>
+          <div class="meta">
+            <div class="price">₹7,499</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://www.petsempire.in/cdn/shop/files/61CSdeKmBeL._SL1500_1e57dac4-dbc5-4657-855e-3648c4c3c888.jpg?v=1742893601"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Pets Empire 7-in-1 Vacuum Kit</h3>
+          <p class="desc">
+            The Pets Empire 7-in-1 Vacuum Grooming Kit trims, brushes, vacuums
+            loose hair, and even handles nail care using a powerful yet quiet
+            400 W motor, offering a clean, efficient, all-in-one grooming
+            solution for pets at home.
+          </p>
+          <div class="meta">
+            <div class="price">₹3,496</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71WgkfgBVbL.jpg"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Eureka Forbes Buddy Grooming Kit</h3>
+          <p class="desc">
+            The Eureka Forbes Buddy Pet Grooming Kit combines vacuuming, drying,
+            brushing, deshedding, and trimming in one unit, offering adjustable
+            suction and hot-air drying for quick, low-mess, comfortable at-home
+            grooming that keeps your pet’s coat neat and healthy.
+          </p>
+          <div class="meta">
+            <div class="price">₹2,499</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71FSM79vEBL._AC_UF1000,1000_QL80_.jpg"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Complete Pet Grooming Kit</h3>
+          <p class="desc">
+            The Complete Pet Grooming Kit offers all essential tools—slicker
+            brush, deshedding tool, comb, nail clippers, bath brush, and
+            scissors—to safely clean, detangle, trim, and maintain your pet’s
+            coat at home, keeping them healthy and well-groomed without frequent
+            salon visits.
+          </p>
+          <div class="meta">
+            <div class="price">₹504</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://petindiaonline3.s3.ap-south-1.amazonaws.com/upload_product/fresgcoat1911.jpg"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Himalaya Fresh Coat Spray</h3>
+          <p class="desc">
+            The Himalaya Fresh Coat No-Rinse Spray naturally cleans, deodorises,
+            and conditions your pet’s coat using herbal ingredients like
+            Jambira, Tulasi, and Ushira—offering a quick, gentle, bath-free way
+            to keep dogs and cats fresh between regular washes.
+          </p>
+          <div class="meta">
+            <div class="price">₹533</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://supertails.com/cdn/shop/files/ph_4_ed6c4cae-07fe-46e3-8764-be52014efa04.jpg?v=1747141018"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Ttk Hug n Wag Shampoo</h3>
+          <p class="desc">
+            The TTK Hug n Wag Shampoo gently cleans, hydrates, and deodorises
+            pet fur using natural ingredients like aloe vera, pro-vitamin B5,
+            and orange peel oil, leaving the coat soft, shiny, fresh-smelling,
+            and healthy for regular use on all breeds.
+          </p>
+          <div class="meta">
+            <div class="price">₹4,921</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71VAbEDp+hL.jpg"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Bio Groom Oatmeal Shampoo</h3>
+          <p class="desc">
+            Bio-Groom Natural Oatmeal Soothing Shampoo gently cleans and
+            relieves itching, dryness, and irritation using colloidal oatmeal
+            and mild, biodegradable cleansers—leaving your pet’s coat soft,
+            shiny, and comfortable, especially for sensitive skin.
+          </p>
+          <div class="meta">
+            <div class="price">₹295</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://rukminim2.flixcart.com/image/480/640/kura1e80/pet-nail-clipper/c/9/d/electric-automatic-pet-grooming-kit-2-in1-dog-nail-grinder-and-original-imag7t2uynfwaem9.jpeg?q=90"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Nail Clippers / Grinder image</h3>
+          <p class="desc">
+            The Pet Nail Clippers/Nail Grinder offers a safe, easy way to
+            maintain your pet’s nails with sharp stainless-steel clippers and a
+            quiet, gentle grinder, ensuring clean, smooth trimming for pets of
+            all sizes between grooming sessions.
+          </p>
+          <div class="meta">
+            <div class="price">₹549</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/51LR5zIwB1L.jpg"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>Ear Cleaning Wipes</h3>
+          <p class="desc">
+            Ear Cleaning Wipes for Pets gently remove dirt, wax, and odors using
+            aloe vera and soothing botanicals, offering a safe, alcohol-free,
+            easy way to maintain ear hygiene and reduce irritation during
+            regular grooming.
+          </p>
+          <div class="meta">
+            <div class="price">₹380</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/61JYs6QZj9L._AC_UF1000,1000_QL80_.jpg"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+              "
+            />
+          </div>
+          <h3>De-shedding Tool</h3>
+          <p class="desc">
+            The Pet De-shedding Tool uses a stainless-steel edge to safely reach
+            the undercoat and remove loose fur, reducing shedding while keeping
+            your pet’s coat smooth and healthy, supported by an ergonomic handle
+            and easy fur-release design.
+          </p>
+          <div class="meta">
+            <div class="price">₹650</div>
+            <div class="actions">
+              <button class="btn cta">Add to cart</button>
+              <button class="btn ghost">View</button>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <footer>
+        Prices are illustrative and taken from the conversation. For live prices
+        and purchasing, visit the retailer.
+      </footer>
+    </main>
+    <footer class="footer">
+      <style>
+        .footer {
+          width: 98%;
+          padding: 40px 20px 0;
+          background: #5ea8d033;
+          color: #333;
+          font-family: "Inter", sans-serif;
+        }
+
+        .footer-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 20px;
+          padding-bottom: 30px;
+          border-bottom: 1px solid #ddd;
+        }
+
+        .footer-left p {
+          font-size: 18px;
+          line-height: 26px;
+          font-weight: 500;
+          color: #444;
+          margin: 0;
+        }
+
+        .footer-center {
+          text-align: center;
+          flex: 1;
+          padding: 20px 10px;
+          border-radius: 10px;
+        }
+
+        .footer-logo {
+          width: 180px;
+          margin-bottom: 15px;
+        }
+
+        .social-icons {
+          display: flex;
+          justify-content: center;
+          gap: 12px;
+          margin-top: 10px;
+        }
+
+        .social-icons img {
+          width: 24px;
+          height: 24px;
+          opacity: 0.8;
+          transition: 0.2s;
+        }
+
+        .social-icons img:hover {
+          opacity: 1;
+        }
+
+        .footer-right {
+          text-align: right;
+          font-size: 15px;
+          line-height: 22px;
+          color: #444;
+        }
+
+        .footer-right a {
+          color: #444;
+          text-decoration: none;
+        }
+
+        .footer-bottom {
+          margin-top: 20px;
+          padding: 12px 0;
+          font-size: 13px;
+          color: #777;
+          border-top: 1px solid #e5e5e5;
+
+          display: flex;
+          justify-content: space-between;
+        }
+      </style>
+
+      <div class="footer-top">
+        <div class="footer-left">
+          <p>
+            Get In Touch With Us For<br />
+            The Best Grooming<br />
+            Packages At Your<br />
+            Doorstep!
+          </p>
+        </div>
+
+        <div class="footer-center">
+          <img
+            src="./main page/logo.png"
+            alt="woofly logo"
+            class="footer-logo"
+          />
+
+          <div class="social-icons">
+            <a href="#"
+              ><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
+                alt="Instagram"
+            /></a>
+            <a href="#"
+              ><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/960px-LinkedIn_logo_initials.png"
+                alt="LinkedIn"
+            /></a>
+            <a href="#"
+              ><img
+                src="https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png"
+                alt="Facebook"
+            /></a>
+          </div>
+        </div>
+
+        <div class="footer-right">
+          <a href="#">Privacy Policy</a> • <a href="#">Terms & Conditions</a
+          ><br />
+          <a href="#">Refunds and Cancellations</a>
+          <br /><br />
+
+          <strong>+91 9863812479</strong><br />
+          <a href="mailto:contact@groomco.in">contact@groomco.in</a>
+          <br /><br />
+
+          Lohegaon, Maharashtra, Pune-411001,<br />
+          India
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Copyright © 2025 GROOMCO.</div>
+        <div>PURTALK MENTAL HEALTH SOLUTIONS PRIVATE LIMITED</div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        #form-flex form{
+            background-color: grey;
+            height: 150px;
+            width: 200px;
+            font-size: 20px;
+            width:500px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+        }
+        #text{
+            width: 180px;
+            height: 50px;
+            text-align: start;
+        }
+        #review{
+            background-color: rgba(0, 0, 0, 0.441);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            text-align: center;
+            width: 500px;
+            height: 400px;
+            padding-top: 60px;
+            position: relative;
+            right: 160px;
+            border-radius: 20px;
+        }
+        #main-flex{
+            display: flex;
+            flex-direction: row;
+            top: 40px;
+            position: absolute;
+            justify-content: center;
+            margin-left: 400px;
+            
+        }
+        #image{
+            opacity: 50%;
+        }
+        
+        #img{
+            width: 100%;
+            height: auto;
+        }
+        #flex-map{
+            display: flex;
+            flex-direction: row ;
+           
+            height: auto;
+            /* width: 100%; */
+            margin-top: 50px;
+         
+            padding:0 150px;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        #find{
+            text-align: center;
+            background-color: black;
+            color: white
+            
+        }
+        #connect:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="image">
+        <img id="img" src="https://static.vecteezy.com/system/resources/previews/035/769/358/non_2x/pet-owners-who-train-their-dogs-community-of-dog-lovers-men-and-women-play-with-their-pets-flat-graphic-illustration-isolated-on-a-solid-background-vector.jpg">
+    </div>
+    <div id="main-flex">
+        <div id="review">
+        <h2>One-Stop Solution For All Pet-Care Services</h2>
+        <p>9 services, 1000+ vetted partners, 35K app downloads & 1,740 ★4.6 reviews</p>
+        <p>1,800+ Google reviews (★ 4.5)
+            📱 20,000+ app downloads |
+            🏠 35,000+ orders delivered|</p>
+        <p> 👥 20,000+ happy pet parents - 25,000+ Happy pets |</p>
+        <p> ⭐ ⭐ 4 plus years of delivering exceptional pet care services⭐⭐</p> 
+        </div>
+        <div id="form-flex">
+            <form method="post">
+                <caption>CONNECT WITH US</caption><br>
+                <br>
+                <input type="text" placeholder="Name" id="name" style="width: 60%; height: 40px;"></input><br>
+                <input type="email" placeholder="Email" id="email" style="width: 60%; height: 40px;"></input><br>
+                <input type="tel" placeholder="Contact Number" maxlength="13" minlength="10" id="num" style="width: 60%; height: 40px;"></input><br>
+                <input type="text" placeholder="Any Message for us..." id="text" style="width: 60%; height: 70px;"></input><br>
+                <button type="submit" id="connect" style="width: 22%; height: 40px;">BOOK NOW</button><br>
+            </form>
+        </div>
+    </div>
+    
+<div id="flex-map">
+  <div>
+        <h1>CONTACT DETAILS</h1>
+        <h2>Email</h2>
+        <p>pawprintsservice@gmail.com</p>
+        <h2>Contact</h2>
+        <p>+91 9301804524, 8984002912</p>
+        <h2>Our Location</h2>
+        <p>Ajeenkya DY University, Lohegaon, Pune, Maharashra, 411001</p>
+  </div>
+  <div style="width:500px; max-width:900px;  border-radius:12px; overflow:hidden; box-shadow:0 0 20px rgba(0,0,0,0.15);" id="mapp">
+    <h1 id="find">Find Us</h1>
+  <iframe
+  width="500px"
+  height="400"
+  style="border:0"
+  loading="lazy"
+  allowfullscreen
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBfGeD3ZfQAjhjT8QkeXzqRTP0GjBUpV7w&q=Ajeenkya+DY+Patil+University,Pune">
+  </iframe>
+  </div>
+</div>
+<footer class="footer">
+  <style>
+    .footer {
+      width: 98%;
+      padding: 40px 20px 0;
+      background: #5EA8D033; 
+      color: #333;
+      font-family: "Inter", sans-serif;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .footer-left p {
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 500;
+      color: #444;
+      margin: 0;
+    }
+
+    .footer-center {
+      text-align: center;
+      flex: 1;
+      padding: 20px 10px;
+      border-radius: 10px;
+    }
+
+    .footer-logo {
+      width: 180px;
+      margin-bottom: 15px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+      opacity: 0.8;
+      transition: 0.2s;
+    }
+
+    .social-icons img:hover {
+      opacity: 1;
+    }
+
+    .footer-right {
+      text-align: right;
+      font-size: 15px;
+      line-height: 22px;
+      color: #444;
+    }
+
+    .footer-right a {
+      color: #444;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      padding: 12px 0;
+      font-size: 13px;
+      color: #777;
+      border-top: 1px solid #e5e5e5;
+
+      display: flex;
+      justify-content: space-between;
+    
+    }
+  </style>
+
+  <div class="footer-top">
+    
+    <div class="footer-left">
+      <p>
+        Get In Touch With Us For<br />
+        The Best Grooming<br />
+        Packages At Your<br />
+        Doorstep!
+      </p>
+    </div>
+
+    <div class="footer-center">
+      <img src="./main page/logo.png" alt="woofly logo" class="footer-logo" />
+
+      <div class="social-icons">
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram" /></a>
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/960px-LinkedIn_logo_initials.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png" alt="Facebook" /></a>
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <a href="#">Privacy Policy</a> •
+      <a href="#">Terms & Conditions</a><br />
+      <a href="#">Refunds and Cancellations</a>
+      <br /><br />
+
+      <strong>+91 9863812479</strong><br />
+      <a href="mailto:contact@groomco.in">contact@groomco.in</a>
+      <br /><br />
+
+      Lohegaon, Maharashtra, Pune-411001,<br />
+      India
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div>Copyright © 2025 GROOMCO.</div>
+    <div>PURTALK MENTAL HEALTH SOLUTIONS PRIVATE LIMITED</div>
+  </div>
+</footer>
+
+
+</body>
+</html>
